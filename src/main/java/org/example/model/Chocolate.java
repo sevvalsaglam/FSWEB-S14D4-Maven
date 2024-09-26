@@ -2,6 +2,9 @@ package org.example.model;
 
 public class Chocolate extends ProductForSale{
     private String chocolateType;
+    public Chocolate(String type, double price, String description) {
+        super(type, price, description);
+    }
     public Chocolate(String type, double price, String description, String chocolateType) {
         super(type, price, description);
         this.chocolateType=chocolateType;
@@ -12,7 +15,14 @@ public class Chocolate extends ProductForSale{
     }
 
     @Override
-    public String showDetails() {
-        return "Type: " + this.getType() +"Price: " + this.getPrice() +"Description: "+ this.getDescription() +"Chocolate Type: " +this.getChocolateType();
+    public void showDetails() {
+        System.out.println(super.toString()+this);
+    }
+
+    @Override
+    public String toString() {
+        return "Chocolate{" +
+                "chocolateType='" + chocolateType + '\'' +
+                '}';
     }
 }
